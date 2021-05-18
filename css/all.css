@@ -144,7 +144,7 @@ header {
   }
   header {
     width: 100%;
-    height: 100vh;
+    height: 80px;
   }
   .top-nav {
     width: 100%;
@@ -447,207 +447,131 @@ textarea {
   color: #ffc107;
 }
 
-/*cards*/
+/*post page form*/
 
-.main {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.main h1 {
-  font-size: 35px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.main img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-.main .btn {
-  color: #ffffff;
-  padding: 0.8rem;
-  font-size: 14px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  font-weight: 400;
-  display: block;
-  width: 100%;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: transparent;
-}
-
-.btn:hover {
-  background-color: rgba(255, 255, 255, 0.12);
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 10px;
-  padding: 0;
-  justify-content: center;
-  align-items: center;
-}
-
-.cards_item {
-  margin: 5px;
-  display: flex;
-  padding: 1rem;
-  cursor: pointer;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  transition: all 500ms ease-in-out;
-}
-.cards_item:hover {
-  transform: scale(1.05);
-  box-shadow: rgba(231, 231, 240, 0.952) 0px 50px 100px -20px,
-    rgba(245, 172, 172, 0.959) 0px 30px 60px -30px;
-}
-.card_image img {
-  width: 400px;
-  height: 400px;
-}
-/* @media (min-width: 40rem) {
-  .cards_item {
-    width: 50%;
-  }
-} */
-
-@media (min-width: 1000px) {
-  .cards_item {
-    width: 32%;
-  }
-}
-@media screen and (max-width: 600px) {
-  .card_image img {
-    width: 300px;
-    height: 300px;
-  }
-}
-.main .cards .cards_item .card {
-  background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.card_content {
-  padding: 1rem;
-  background: linear-gradient(to bottom left, #ef8d9c 40%, #ffc39e 100%);
-}
-
-.card_title {
-  color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-  margin: 0px;
-}
-
-.card_text {
-  color: #ffffff;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-  font-weight: 400;
-}
-
-/*posts section */
-.post h2 {
-  font-size: 40px;
+.top {
+  font-size: 50px;
   font-family: "Dancing Script", cursive;
-  text-align: center;
-  margin-top: 30px;
-  color: #000080
-}
-.post .cards {
-  display: flex;
-  justify-content: space-evenly;
-}
-.post line {
-  width: 30px;
-  height: 40px;
-  background-color: #111111;
-}
-.post .cards .card {
-  width: 80%;
-  margin: 40px;
+  margin:20px;
   padding: 10px;
-  padding-bottom: 25px;
-  background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);
-  cursor: pointer;
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-  transition: all 300ms;
+  color: #000080;
+  text-align:right;
 }
-.post .cards .card:hover {
-  transform: scale(1.03);
+.form_area {
+  max-width: 550px;
+  width: 100%;
+  margin: 30px auto;
+  padding: 30px;
   box-shadow: rgba(79, 81, 82, 0.973) 0px 2px 4px 0px,
     rgba(165, 167, 167, 0.952) 0px 2px 16px 0px;
+  border-radius: 10px;
+  background-size: cover;
 }
-.card-image img {
+.form_area .title {
+  font-size: 30px;
+  font-family: "PT Serif", serif;
+  text-align: center;
+  color: #4b0082;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.form_area .form {
   width: 100%;
 }
-.card-title span {
-  font-size: 20px;
-  color: rgb(133, 78, 187);
-}
-.card-title {
-  text-transform: capitalize;
-  font-size: 18px;
-  text-align: center;
-  padding: 5px;
-}
-.card-text span {
-  text-transform: capitalize;
-  color: #bcf5f7;
-}
-.card-text {
-  font-weight: normal;
-  font-size: 13px;
-}
-.card-name span {
-  color: #607777;
-}
-.card-email span {
-  color: #607777;
-}
-.card-number span {
-  color: #607777;
-}
-.card-address span {
-  color: #607777;
-}
-.buttons {
+.form .input {
+  margin-top: 2px;
+  margin-bottom: 20px;
   display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
-.buttons button {
-  width: 100px;
-  height: 50px;
-  background-color: transparent;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  align-items: center;
+  width: 100%;
   border: none;
-  transition: all 300ms;
-}
-.buttons button:hover {
-  transform: scale(1.05);
-  box-shadow: rgba(79, 81, 82, 0.973) 0px 2px 4px 0px,
-    rgba(165, 167, 167, 0.952) 0px 2px 16px 0px;
-}
-@media (min-width: 1000px) {
-  .post .cards .card {
-    width: 40%;
-  }
+  border-radius: 3px;
+  padding: 8px 10px;
+  box-shadow: 2px 2px 5px;
 }
 
+textarea {
+  margin-top: 2px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  resize: none;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 10px;
+  box-shadow: 2px 2px 5px;
+  color:black;
+  background:white;
+}
+.form_area .form .input:focus,
+.form_area .form .textarea:focus,
+.form_area .form select:focus {
+  outline:none;
+}
+.form .select {
+  position: relative;
+  width: 100%;
+  height: 38px;
+  margin-bottom: 20px;
+}
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 8px 10px;
+  border-radius: 3px;
+  outline: none;
+  margin-bottom: 2px;
+  box-shadow: 2px 2px 5px;
+}
+.form .select:before {
+  content: "";
+  position: absolute;
+  top: 10;
+  right: 10;
+  border: none;
+  border-radius: 3px;
+  pointer-events: none;
+  margin-bottom: 15px;
+}
+
+
+.submit,
+.button {
+  width: 100%;
+  height:45px;
+  font-size: 20px;
+  color: #800080;
+  cursor: pointer;
+  border-radius: 5px;
+  
+  background-color: transparent;
+  box-shadow: rgba(79, 81, 82, 0.973) 0px 2px 4px 0px,
+    rgba(165, 167, 167, 0.952) 0px 2px 16px 0px;
+ border: none;
+  transition: all 300ms;
+  background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);
+}
+.submit,
+.button:hover {
+  
+  color: #0b3b17;
+}
+.file-input .file {
+  width: 100%;
+  font-size: 15px;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 2px 2px 5px;
+  outline: none;
+  margin-bottom: 15px;
+  padding: 10px;
+  background:white;
+}
+label {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
