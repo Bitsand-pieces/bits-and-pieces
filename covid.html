@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HEAVEN</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/all.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+ <header>
+     <div class="menu-toggler">
+         <div class="bar half start"></div>
+         <div class="bar"></div>
+         <div class="bar half end"></div>
+     </div>
+     <nav class="top-nav">
+         <ul class="nav-list">
+          <li>
+            <a href="home.html" class="nav-link"><img src="images/logo1.png" alt="logo" style="width: 300px; height: 300px;"></a>
+        </li>
+             <li>
+                 <a href="home.html" class="nav-link">Home</a>
+             </li>
+             <li>
+                 <a href="covid.html" class="nav-link">Covid relief</a>
+             </li>
+             <li>
+                 <a href="post.html" class="nav-link">Post Something</a>
+             </li>
+             <li>
+                 <a href="blog.html" class="nav-link">Blogs</a>
+             </li>
+             <li>
+                 <a href="#skills" class="nav-link">Profile</a>
+             </li>
+             <li>
+                 <a class="nav-link" data-toggle="modal" data-target="#myModal">Login</a>
+             </li>
+         </ul>
+     </nav>
+
+
+
+         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+       Open modal
+     </button> -->
+   
+     <!-- The Modal -->
+     <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Login</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+           <form action="" method="post" >
+             <div class="modal-body" >
+       
+              <form>
+                <div class="form-group">
+                  <label>Email :</label>
+                  <input type="email" name="username" class="form-control" placeholder="Enter Email">
+                </div>
+                <div class="form-group">
+                 <label>Password :</label>
+                 <input type="password" name="password" class="form-control" required placeholder="Enter Password">
+               </div>
+              </form> 
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+               <button type="submit" class="btn btn-success" name="register_btn" id="register_btn">Login</button>
+             </div>
+       
+             </form>
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+           <h5>don't have an account <a data-toggle="modal" data-target="#Modal">register yourself here</a></h5>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+    <!-- second modal -->
+ <!-- The Modal -->
+ <div class="modal fade" id="Modal">
+   <div class="modal-dialog">
+     <div class="modal-content">
+     
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Register Yourself</h4>
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+       </div>
+       
+       <!-- Modal body -->
+       <div class="modal-body">
+        <form action="" method="post" >
+          <div class="modal-body" >
+    
+           
+            
+            <label for="userName">User Name</label>
+            <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter Your Name" required>
+          </div>
+
+          <div class="form-group col-md-12">
+            <label for="email">Email Id</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+          </div>
+
+          <div class="form-group col-md-12">
+            <label for="phn">Phone</label>
+            <input type="tel" class="form-control" id="phn" name="phn" maxlength="10" placeholder="Enter Your Phone Number" required>
+          </div>
+
+          <div class="form-group col-md-12">
+            <label for="pswd">Password</label>
+            <input type="password" class="form-control" id="pswd" name="pswd" placeholder="Enter Your Password" required>
+          </div>
+
+          <div class="form-group col-md-12">
+            <label for="cPswd">Confirm Password</label>
+            <input type="password" class="form-control" id="cPswd" name="cPswd" placeholder="Confirm Your Password" required>
+          </div>
+           </form> 
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+             <button type="submit" class="btn btn-success" name="register_btn" id="register_btn">Register</button>
+           </div>
+    
+         
+       </div>
+       
+       
+       
+     </div>
+   </div>
+ </div>
+    
+ </header>
+
+
+   <div class="post">
+          <h2><u>Available Covid Relief..</u></h2>
+          <div class="line"></div>
+          <div class="cards">
+            <div class="card"  data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="400">
+              <div class="card-item">
+                <div class="card-image"><img src="images/oxygen.jpg" alt=""></div>
+                <div class="card-content">
+                  <div class="card-title"><span>Object Name: </span>alok kumar</div>
+                  <div class="card-text"><span>details: </span>Demo of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel perfect pure CSS 
+                    simple responsive card grid layoutDemo of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel perfect pure CSS simple
+                     responsive card grid layout
+                   </div>
+                  <a href="food_details.html"><i class="fa fa-hand-point-right"></i> more details</a><br>
+                  <h3>Complete Address</h3>
+                  <div class="card-name"><span>Name : </span>Alok kumar</div>
+                  <div class="card-email"><span>Email : </span>alok.kumar@gmail.com</div>
+                  <div class="card-number"><span>Mobile No. : </span>7600351870</div>
+                  <div class="card-address"><span>Complete Address : </span>halmari,katihr(Bihar), 577880</div><br>
+                  
+                </div>
+              </div>
+              <div class="buttons">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </div>
+            <div class="card" data-aos="zoom-in-down" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="400">
+              <div class="card-item">
+                <div class="card-image"><img src="images/oxygen.jpg" alt="" ></div>
+                <div class="card-content">
+                  <div class="card-title"><span>Food Name: </span>alok kumar</div>
+                  <div class="card-text"><span>details: </span>Demo of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel perfect pure CSS 
+                     of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel
+                      perfect pure CSS simple responsive card grid layout
+                  </div>
+                  <a href="food_details.html">more details</a><br>
+                  <h3>Address</h3>
+                  <div class="card-name"><span>Name :</span>Alok kumar</div>
+                  <div class="card-email"><span>Email :</span>alok.kumar@gmail.com</div>
+                  <div class="card-number"><span>Mobile No. :</span>7600351870</div>
+                  <div class="card-address"><span>Complete Address :</span>halmari,katihr(Bihar), 577880</div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </div>
+            <div class="card" data-aos="zoom-in-down" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="400">
+              <div class="card-item">
+                <div class="card-image"><img src="images/oxygen.jpg" alt="" ></div>
+                <div class="card-content">
+                  <div class="card-title"><span>Food Name: </span>alok kumar</div>
+                  <div class="card-text"><span>details: </span>Demo of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel perfect pure 
+                     grid layoutDemo of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel perfect pure CSS simple responsive card grid
+                      layoutDemo of pixel perfect pure CSS simple responsive card grid layout
+                 </div>
+                  <a href="food_details.html">more details</a><br>
+                  <h3>Address</h3>
+                  <div class="card-name"><span>Name :</span>Alok kumar</div>
+                  <div class="card-email"><span>Email :</span>alok.kumar@gmail.com</div>
+                  <div class="card-number"><span>Mobile No. :</span>7600351870</div>
+                  <div class="card-address"><span>Complete Address :</span>halmari,katihr(Bihar), 577880</div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </div>
+            <div class="card" data-aos="zoom-in-down" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="400">
+              <div class="card-item">
+                <div class="card-image"><img src="images/oxygen.jpg" alt="" ></div>
+                <div class="card-content">
+                  <div class="card-title"><span>Food Name: </span>alok kumar</div>
+                  <div class="card-text"><span>details: </span>Demo of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel perfect pure CSS 
+                     card grid layoutDemo of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel perfect pure CSS simple responsive card grid 
+                     layoutDemo of pixel perfect pure CSS simple responsive card grid layout
+                  
+                </div>
+                  <a href="food_details.html">more details</a><br>
+                  <h3>Address</h3>
+                  <div class="card-name"><span>Name :</span>Alok kumar</div>
+                  <div class="card-email"><span>Email :</span>alok.kumar@gmail.com</div>
+                  <div class="card-number"><span>Mobile No. :</span>7600351870</div>
+                  <div class="card-address"><span>Complete Address :</span>halmari,katihr(Bihar), 577880</div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </div>
+          </div>
+        
+
+        </div>
+
+
+
+
+ 
+ <footer class="c footer-section section bg-image" data-bg="assets/images/bg/footer-bg.jpg">
+    <a href="#"><div class="up" id="up">
+        <i class="fas fa-chevron-up"></i> 
+    </div>
+   </a>
+
+
+  
+   <div
+       class="footer-top section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-85 pb-lg-65 pb-md-60 pb-sm-50 pb-xs-40">
+       <div class="container">
+           <div class="row">
+
+             
+
+
+
+               <div class="footer-widget col-lg-4 col-md-6 col-sm-6 col-12 mb-30">
+                 <h4 class="title"><span class="text">Bits and Pieces </span></h4>
+                 <ul>
+                     <li><span> You will be satisfy with our work knowing we take the necessary steps to meet your
+                       </span></li>
+                   <li><span>needs and get the job done right. We also have been working in order to provide help to the needy as much as possible</span></li>
+                 </ul>
+             </div>
+
+               
+               <div class="footer-widget col-lg-4 col-md-6 col-sm-6 col-12 mb-30">
+                   <h4 class="title"><span class="text">Bits and Pieces Office</span></h4>
+                   <ul>
+                       <li><i class="fa fa-map-marker"></i><span> BCE Patna, Patna, Inida.</span></li>
+                       <li><i class="fa fa-phone"></i><span><a href="#"> (102) 6666 8888</a></span></li>
+                       <li><i class="fa fa-envelope"></i><span><a href="#">info@example.com</a></span></li>
+                       <li><i class="fa fa-clock"></i><span><a href="#"> Mon - Sat: 9:00 - 18:00</a></span></li>
+                   </ul>
+               </div>
+              
+               <div class="footer-widget col-lg-4 col-md-6 col-sm-6 col-12 mb-30">
+                   <h4 class="title"><span class="text">Contact Us</span></h4>
+                   <p>Enter your Email and Some Message here.. </p>
+                   <form id="mc-form" class="mc-form footer-newsletter">
+                       <input id="mc-email" type="email" autocomplete="off" placeholder="Email Here.." required/>
+                       <textarea id="mc-email" placeholder="write some message here..."></textarea>
+
+                       <button id="mc-submit">send</button>
+                   </form>
+                   
+               </div>
+             
+
+
+           </div>
+       </div>
+     
+   </div>
+   
+   <div class="footer-bottom section">
+       <div class="container">
+           <div class="row">
+               <div class="col-12">
+                   <div class="copyright text-center">
+                       <p> Made with <i class="fa fa-heart"></i> by
+                           Fledgling Coders.</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+  
+
+</footer>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+   <script src="js/home.js"></script>
+   <script>
+     AOS.init();
+   </script>
+</body>
+</html>

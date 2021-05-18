@@ -21,6 +21,7 @@ body {
 a {
   text-decoration: none;
   color: rgb(2, 11, 17);
+  cursor: pointer;
 }
 a:hover {
   text-decoration: none;
@@ -566,7 +567,7 @@ textarea {
   font-family: "Dancing Script", cursive;
   text-align: center;
   margin-top: 30px;
-  color: #000080
+  color: #000080;
 }
 .post .cards {
   display: flex;
@@ -651,3 +652,15 @@ textarea {
   }
 }
 
+.btn-success {
+  background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  border-radius: 0;
+  border: none;
+  height: 40px;
+  width: 80px;
+}
+.btn-success:hover {
+  background: linear-gradient(to bottom left, #e2c6b5 40%, #e9a3ad 100%);
+}
