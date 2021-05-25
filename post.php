@@ -73,7 +73,7 @@ include('assets/SecondHeader.php');
     </div>
     <div class="form">
         <label for="fname">Quantity:</label>
-        <input type="number" class="input" placeholder="Quantity of item">
+        <input type="number" min="1" class="input" placeholder="Quantity of item">
     </div>
     <div class="form">
         <label for="fname">Short Description:</label>
