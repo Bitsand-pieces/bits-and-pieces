@@ -20,7 +20,7 @@ include('assets/mainHeader.php')
                     <div class="card_content">
                         <h2 class="card_title">Card Grid Layout</h2>
                         <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-                        <button class="btn card_btn">Read More</button>
+                        <button class="btn card_btn"><a href="about.php">Read More</a></button>
                     </div>
                 </div>
             </li>
@@ -31,7 +31,7 @@ include('assets/mainHeader.php')
                     <div class="card_content">
                         <h2 class="card_title">Card Grid Layout</h2>
                         <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-                        <button class="btn card_btn">Read More</button>
+                        <button class="btn card_btn"><a href="about.php">Read More</a></button>
                     </div>
                 </div>
             </li>
@@ -42,7 +42,7 @@ include('assets/mainHeader.php')
                     <div class="card_content">
                         <h2 class="card_title">Card Grid Layout</h2>
                         <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-                        <button class="btn card_btn">Read More</button>
+                        <button class="btn card_btn"><a href="about.php">Read More</a></button>
                     </div>
                 </div>
             </li>
