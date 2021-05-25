@@ -141,10 +141,10 @@ include('assets/SecondHeader.php');
 <!-- Breadcrumb Section End -->
 
 <div
-    style=" padding:10px 150px;background-color:white;margin:10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+    style=" padding:10px 50px;background-color:white;margin:10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
     <div class="row align-items-top">
 
-        <div class="col-md-2 profile-picture">
+        <div class="col-md-2 profile-picture text-center">
 
 
 
@@ -152,10 +152,10 @@ include('assets/SecondHeader.php');
                 src="images/avatar_0.jpg.crdownload" alt="">
 
             <br>
-            <p class=" text-center"><a href="" data-toggle="modal" data-target="#editProfileModal"><span
-                        class="fa fa-edit"> </span> EDIT PROFILE </a> </p>
-            <p class="text-center"><a href="" data-toggle="modal" data-target="#changePasswordModal"><span
-                        class="fa fa-edit"> </span> CHANGE PASSWORD </a> </p>
+            <p><a href="" data-toggle="modal" data-target="#editProfileModal"><span class="fa fa-edit"> </span> EDIT
+                    PROFILE </a> </p>
+            <p><a href="" data-toggle="modal" data-target="#changePasswordModal"><span class="fa fa-edit"> </span>
+                    CHANGE PASSWORD </a> </p>
         </div>
         <div class="col-md-2"></div>
         <div class="col-md-8 user-detail">
@@ -259,8 +259,11 @@ include('assets/SecondHeader.php');
                             <div class="col-sm-12">
                                 <label for="landMark">Nearby Famous Shop/Mall/Landmark</label>
                                 <input type="text" class="form-control" name="landMark" id="landMark" required>
-                                <input type="submit" style="border-radius:4px;" class="btn mt-20"
-                                    name="uploadDetail_btn" value="Upload">
+                                <input type="submit" style="border-radius:4px;margin-top: 20px;background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);box-shadow: rgba(79, 81, 82, 0.973) 0px 2px 4px 0px,
+    rgba(165, 167, 167, 0.952) 0px 2px 16px 0px;  border: none;font-size: 20px;"
+                                    onmouseover="this.style.background='linear-gradient(to bottom left, #e2c6b5 40%, #e9a3ad 100%)'"
+                                    onmouseout="this.style.background='linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%)'"
+                                    class="btn mt-20 " name="uploadDetail_btn" value="Upload">
                             </div>
                         </div>
                     </form>

@@ -21,8 +21,8 @@ include('assets/SecondHeader.php')
 
 <!--Product section start-->
 
-<div
-    class="product-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50  pb-50 pb-lg-30 pb-md-20 pb-sm-10 pb-xs-0">
+<div class="product-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50  pb-50 pb-lg-30 pb-md-20 pb-sm-10 pb-xs-0"
+    style="padding:10px;background-color:white;margin:10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
     <div class="container">
         <div class="row">
 
@@ -33,7 +33,7 @@ include('assets/SecondHeader.php')
                         <div class="product-inner row">
                             <div class="col-md-6 col-12 mb-xs-30">
                                 <div class="product-image-slider">
-                                    <div class="item"><a href="images/300254_feeding123.jpg" class="gallery-popup"><i
+                                    <div class="item"><a href="images/landingpage.png" class="gallery-popup"><i
                                                 class="pe-7s-search"></i><img src="images/landingpage.png" alt=""></a>
                                     </div>
 
@@ -70,7 +70,7 @@ include('assets/SecondHeader.php')
 
                                     <div class="tab-content">
                                         <div id="product-description" class="tab-pane active show"
-                                            style="background-color: white; padding:15px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                                            style="background-color: #edeef0; padding:15px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                                             <h3
                                                 style=" font-size: 22px; font-weight: 700;color:#784055;text-align: left;">
                                                 Description in Short</h3>
@@ -105,7 +105,7 @@ include('assets/SecondHeader.php')
                                         </div><br>
                                         <div id="product-review" class="tab-pane">
                                             <div class="product-review"
-                                                style="background-color: white; padding:15px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                                                style="background-color: #edeef0; padding:15px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                                                 <h3
                                                     style=" font-size: 22px; font-weight: 700;color:#784055;text-align: left;">
                                                     Complete Description
