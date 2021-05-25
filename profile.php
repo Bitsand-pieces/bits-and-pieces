@@ -132,7 +132,7 @@ include('assets/SecondHeader.php');
         <div class="row align-items-center">
             <div class="col-md-12">
                 <div class="breadcrumb-title">
-                    <h2>Profile</h2>
+                    <h2 style=" font-size: 36px; font-weight: 700;color: pink;text-align: left;">Profile</h2>
                 </div>
             </div>
         </div>
@@ -140,7 +140,8 @@ include('assets/SecondHeader.php');
 </div>
 <!-- Breadcrumb Section End -->
 
-<div style=" padding:10px 150px;">
+<div
+    style=" padding:10px 150px;background-color:white;margin:10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
     <div class="row align-items-top">
 
         <div class="col-md-2 profile-picture">

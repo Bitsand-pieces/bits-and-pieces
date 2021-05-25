@@ -11,7 +11,7 @@ include('assets/SecondHeader.php')
         <div class="row align-items-center">
             <div class="col-md-12">
                 <div class="breadcrumb-title">
-                    <h2>Food Details</h2>
+                    <h2 style=" font-size: 36px; font-weight: 700;color: pink;text-align: left;">Food Details</h2>
                 </div>
             </div>
         </div>
@@ -20,12 +20,7 @@ include('assets/SecondHeader.php')
 <!-- Breadcrumb Section End -->
 
 <!--Product section start-->
-<?php
-while ($row = mysqli_fetch_assoc($res)) {
-    if ($_GET['id'] == $row['id']) {
 
-
-?>
 <div
     class="product-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50  pb-50 pb-lg-30 pb-md-20 pb-sm-10 pb-xs-0">
     <div class="container">
@@ -38,48 +33,86 @@ while ($row = mysqli_fetch_assoc($res)) {
                         <div class="product-inner row">
                             <div class="col-md-6 col-12 mb-xs-30">
                                 <div class="product-image-slider">
-                                    <div class="item"><a href="<?php echo PRODUCT_IMAGE_SITE_PATH . $row['image'] ?>"
-                                            class="gallery-popup"><i class="pe-7s-search"></i><img
-                                                src="<?php echo PRODUCT_IMAGE_SITE_PATH . $row['image'] ?>" alt=""></a>
+                                    <div class="item"><a href="images/300254_feeding123.jpg" class="gallery-popup"><i
+                                                class="pe-7s-search"></i><img src="images/landingpage.png" alt=""></a>
                                     </div>
 
                                 </div>
 
                             </div>
-                            <div class="col-md-6 col-12">
-                                <div class="content">
-                                    <h3 class="title"><?php echo $row['food_name'] ?></h4>
+                            <div class="col-md-6 col-12 ">
+                                <div class="content details" style="padding: 20px;">
+                                    <h3 class="title" style="font-weight: 600;color:blueviolet;">alok kumar</h4>
                                     </h3>
 
 
-                                    <div class="product-meta">
-                                        <span class="posted-in">Name : <?php echo $row['name'] ?></span>
-                                        <span class="tagged-as">Email : <?php echo $row['email']  ?></span>
-                                        <span class="tagged-as">Mobile no : <?php echo $row['number'] ?></span>
-                                        <span class="tagged-as">Address : <?php echo $row['address'] ?>,
-                                            <?php echo $row['city'] ?><br><?php echo $row['state'] ?>,
-                                            <?php echo $row['zip'] ?></span>
+                                    <div class="product-meta" style="padding: 20px;">
+                                        <span class="posted-in"><b>Name :</b> mine</span><br>
+                                        <span class="tagged-as"><b>Email :</b> mine@email.com</span><br>
+                                        <span class="tagged-as"><b>Mobile no :</b> 78210303663</span><br>
+                                        <span class="tagged-as"><b>Address :</b> 668821564,
+                                            jiya ho bihar ke lala,<br>jkxcjcz bkdb,
+                                            145652</span>
                                     </div>
 
 
 
                                     <ul class="product-details-tab-list nav">
-                                        <li><a class="active show" href="#product-description"
-                                                data-toggle="tab">Complete-Description</a></li>
-                                        <li><a href="#product-review" data-toggle="tab">Short-Description</a></li>
+                                        <li><a class="active show" href="#product-description" data-toggle="tab"
+                                                style="width: 200px; font-size: 20px; font-weight: 700;color:#cc7ccc;text-align: left;">short-Description</a>
+                                        </li>
+                                        <li><a href="#product-review" data-toggle="tab"
+                                                style="width: 270px; font-size: 20px; font-weight: 700;color: #cc7ccc;text-align: left;margin-bottom:10px;"><small
+                                                    style=" font-size: 12px; font-weight: 400;color:#999799;text-align: left;">Click
+                                                    Here for</small> Complete-Detail</a>
+                                        </li>
                                     </ul>
 
                                     <div class="tab-content">
-                                        <div id="product-description" class="tab-pane active show">
-                                            <div class="product-description">
-                                                <?php echo $row['description'] ?>
+                                        <div id="product-description" class="tab-pane active show"
+                                            style="background-color: white; padding:15px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                                            <h3
+                                                style=" font-size: 22px; font-weight: 700;color:#784055;text-align: left;">
+                                                Description in Short</h3>
+                                            <hr>
+                                            <div class="product-description" style="color: #6e6d6d;">
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
+                                                short desc
                                             </div>
-                                        </div>
+                                        </div><br>
                                         <div id="product-review" class="tab-pane">
-                                            <div class="product-review">
-
-                                                <div class="review-form">
-                                                    <?php echo $row['short_description'] ?>
+                                            <div class="product-review"
+                                                style="background-color: white; padding:15px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                                                <h3
+                                                    style=" font-size: 22px; font-weight: 700;color:#784055;text-align: left;">
+                                                    Complete Description
+                                                </h3>
+                                                <hr>
+                                                <div class="review-form" style="color: #6e6d6d;">
+                                                    long desc
                                                 </div>
 
                                             </div>
@@ -88,9 +121,10 @@ while ($row = mysqli_fetch_assoc($res)) {
 
                                     <br><br>
                                     <hr>
-                                    <?php echo "<a href='?type=delete&id=" . $row['id'] . "' class='btn btn-primary'>Delete</a>&nbsp;&nbsp;";
+
+                                    <!-- echo "<a href='?type=delete&id=" . $row['id'] . "' class='btn btn-primary'>Delete</a>&nbsp;&nbsp;";
                                             echo "<a href='post.php?id=" . $row['id'] . "' class='btn btn-secondary'>Edit</a>";
-                                            ?>
+                                            ?> -->
 
                                 </div>
                             </div>
@@ -106,8 +140,7 @@ while ($row = mysqli_fetch_assoc($res)) {
         </div>
     </div>
 </div>
-<?php }
-} ?>
+
 <!--Product section end-->
 
 <?php

@@ -680,3 +680,18 @@ label {
 .btn-success:hover {
   background: linear-gradient(to bottom left, #e2c6b5 40%, #e9a3ad 100%);
 }
+
+/* profile page */
+
+.breadcrumb-title h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: left;
+}
+
+/*product details */
+
+.details {
+  background-color: white;
+}
