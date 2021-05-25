@@ -95,6 +95,6 @@ include('assets/SecondHeader.php');
 
 
 <?php
-include('assets/SecondHeader.php');
+include('assets/footer.php');
 
 ?>
