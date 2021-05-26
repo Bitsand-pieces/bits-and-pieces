@@ -1,3 +1,5 @@
+<?php include('connection.php');?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,28 +28,62 @@
         </div>
         <nav class="top-nav">
             <ul class="nav-list">
-                <li>
-                    <a href="index.php" class="nav-link"><img src="images/logo1.png" alt="logo"
-                            style="width: 300px; height: 300px;"></a>
+                
+            <?php
+                    if($_SESSION['is_logged_in']==true){
+                        ?>
+                        <li>
+                        <a href="index.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link"><img src="images/logo1.png" alt="logo"
+                                style="width: 300px; height: 300px;"></a>
+                    </li>
+                    <li>
+                        <a href="index.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="covid.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Covid relief</a>
+                    </li>
+                    <li>
+                        <a href="post.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Post Something</a>
+                    </li>
+                    <li>
+                        <a href="blog.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Blogs</a>
+                    </li>
+                    <li>
+                        <a href="profile.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Profile</a>
+                    </li>
+                    <li>
+                    <a href="logout.php?msg=logout" class="nav-link" >Logout</a>
                 </li>
-                <li>
-                    <a href="index.php" class="nav-link">Home</a>
-                </li>
-                <li>
-                    <a href="covid.php" class="nav-link">Covid relief</a>
-                </li>
-                <li>
-                    <a href="post.php" class="nav-link">Post Something</a>
-                </li>
-                <li>
-                    <a href="blog.php" class="nav-link">Blogs</a>
-                </li>
-                <li>
-                    <a href="profile.php" class="nav-link">Profile</a>
-                </li>
-                <li>
+                
+<?php
+                    }else{
+                        ?>
+                    <li>
+                        <a href="index.php" class="nav-link"><img src="images/logo1.png" alt="logo"
+                                style="width: 300px; height: 300px;"></a>
+                    </li>
+                    <li>
+                        <a href="index.php" class="nav-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="covid.php" class="nav-link">Covid relief</a>
+                    </li>
+                    <li>
+                        <a href="post.php" class="nav-link">Post Something</a>
+                    </li>
+                    <li>
+                        <a href="blog.php" class="nav-link">Blogs</a>
+                    </li>
+                    
+                    <li>
                     <a class="nav-link" data-toggle="modal" data-target="#myModal">Login</a>
                 </li>
+                <?php
+                    }
+
+                ?>
+                
             </ul>
         </nav>
 
@@ -72,7 +108,7 @@
 
                             <div class="form-group">
                                 <label>Email :</label>
-                                <input type="email" name="username" class="form-control" placeholder="Enter Email">
+                                <input type="email" name="loginEmail" class="form-control" placeholder="Enter Email">
                             </div>
                             <div class="form-group">
                                 <label>Password :</label>
@@ -82,11 +118,46 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-success" name="register_btn"
-                                    id="register_btn">Login</button>
+                                <button type="submit" class="btn btn-success" name="login_btn"
+                                    id="login_btn">Login</button>
                             </div>
 
                         </form>
+                        <?php
+                            if(!empty($_GET['msg'])){
+                                if($_GET['msg']=='not_allowed'){
+                                    echo "<script>alert('please login first!!')</script>";
+                                    
+                                }
+                                if($_GET['msg']=='logout'){
+                                    echo "<script>alert('you have been logged out successfully!!')</script>";
+                                   
+                                }
+                            }
+                            if(isset($_POST['login_btn'])){
+                                $loginEmail=$_POST['loginEmail'];
+                                $password=$_POST['password'];
+
+                                $log="SELECT * FROM `registeredusers` WHERE emailId='$loginEmail' AND pswd='$password'";
+                                $logQ=mysqli_query($conn,$log);
+                                
+                                if(mysqli_num_rows($logQ)>0){
+                                    header("location:index.php?username=$username");
+                                    $_SESSION['is_logged_in']=true;
+                                    $row=mysqli_fetch_array($logQ);
+                                    $_SESSION['email']=$loginEmail;
+                                    $_SESSION['name']=$row['name'];
+                                    $_SESSION['contact']=$row['phone'];
+                                    $_SESSION['userId']=$row['id'];
+
+                                }else{
+                                    echo '<div class="alert alert-warning" role="alert">
+                                    Incorrect Credentials !!!
+                                </div>';
+                                }
+
+                            }
+                        ?>
                     </div>
 
                     <!-- Modal footer -->
@@ -151,6 +222,41 @@
                                     id="register_btn">Register</button>
                             </div>
                         </form>
+                        <?php
+        if(isset($_POST['register_btn'])){
+            $username=$_POST['username'];
+            $email=$_POST['email'];
+            $phn=$_POST['phn'];
+            $pswd=$_POST['pswd'];
+            $cPswd=$_POST['cPswd'];
+
+            $sel="SELECT * FROM `registeredusers` WHERE emailId='".$email."' or pswd='".$pswd."'";
+            $selQ=mysqli_query($conn,$sel);
+            if(mysqli_num_rows($selQ)>0){
+                            echo '<div class="alert alert-warning" role="alert">
+                                    User Already Exist!!!
+                                </div>';
+                        }else{
+                            if($cPswd!==$pswd){
+                                echo '<div class="alert alert-warning" role="alert">
+                                Password and Confirm Password does not match!!!
+                            </div>';
+                            }else{
+                                $in="INSERT INTO `registeredusers`( `name`, `emailId`, `phone`, `pswd`) VALUES ('$username','$email','$phn','$pswd')";
+                                $inQ=mysqli_query($conn,$in);
+                                if($inQ>0){
+                                    echo '<div class="alert alert-warning" role="alert">
+                                    User Registered Successfully!!!
+                                </div>';
+                                }
+                            }
+
+
+                        }
+
+                }
+                   
+                    ?>
 
 
                     </div>
