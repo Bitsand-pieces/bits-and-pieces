@@ -7,11 +7,12 @@ include('assets/SecondHeader.php');
 <div class="top">
     Donate and Save Lives...
 </div>
-<div class="form_area" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="400">
+<div class="form_area" style="background-color: #edeef0;" data-aos="zoom-in" data-aos-delay="100"
+    data-aos-duration="1500" data-aos-offset="400">
     <div class="title">
         DONATE IF YOU CAN
     </div>
-
+    <!--
     <div class="form">
         <label for="fname">Name:</label>
         <input type="text" class="input" placeholder="Your Name Here">
@@ -47,6 +48,10 @@ include('assets/SecondHeader.php');
         <label for="fname">Zip code:</label>
         <input type="number" max="6" class="input" placeholder="postal code">
     </div>
+    -->
+    <!-- 
+These data should be getched from backend insted of asking from user again and again -->
+
     <div class="form">
         <label for="fname">Donation Type:</label>
         <div class="select">
@@ -73,7 +78,7 @@ include('assets/SecondHeader.php');
     </div>
     <div class="form">
         <label for="fname">Quantity:</label>
-        <input type="number" class="input" placeholder="Quantity of item">
+        <input type="number" min="1" class="input" placeholder="Quantity of item">
     </div>
     <div class="form">
         <label for="fname">Short Description:</label>

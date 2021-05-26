@@ -1,9 +1,7 @@
 <?php
-include('assets/SecondHeader.php')
+include("assets/SecondHeader.php");
 
 ?>
-
-
 
 <!-- Breadcrumb Section Start -->
 <div class="breadcrumb-section section bg-black pt-75 pb-75 pt-sm-55 pb-sm-55 pt-xs-45 pb-xs-45">
@@ -11,7 +9,8 @@ include('assets/SecondHeader.php')
         <div class="row align-items-center">
             <div class="col-md-12">
                 <div class="breadcrumb-title">
-                    <h2 style=" font-size: 36px; font-weight: 700;color: pink;text-align: left;">Food Details</h2>
+                    <h2 style=" font-size: 36px; font-weight: 700;color: pink;text-align: left;">About Feeding(oxygen
+                        cylinder,street animal feeding)</h2>
                 </div>
             </div>
         </div>
@@ -33,8 +32,8 @@ include('assets/SecondHeader.php')
                         <div class="product-inner row">
                             <div class="col-md-6 col-12 mb-xs-30">
                                 <div class="product-image-slider">
-                                    <div class="item"><a href="images/landingpage.png" class="gallery-popup"><i
-                                                class="pe-7s-search"></i><img src="images/landingpage.png" alt=""></a>
+                                    <div class="item"><a href="images/feeding_dogs.jpg" class="gallery-popup"><i
+                                                class="pe-7s-search"></i><img src="images/feeding_dogs.jpg" alt=""></a>
                                     </div>
 
                                 </div>
@@ -45,35 +44,12 @@ include('assets/SecondHeader.php')
                                     <h3 class="title" style="font-weight: 600;color:blueviolet;">alok kumar</h4>
                                     </h3>
 
-
-                                    <div class="product-meta" style="padding: 20px;">
-                                        <span class="posted-in"><b>Name :</b> mine</span><br>
-                                        <span class="tagged-as"><b>Email :</b> mine@email.com</span><br>
-                                        <span class="tagged-as"><b>Mobile no :</b> 78210303663</span><br>
-                                        <span class="tagged-as"><b>Address :</b> 668821564,
-                                            jiya ho bihar ke lala,<br>jkxcjcz bkdb,
-                                            145652</span>
-                                    </div>
-
-
-
-                                    <ul class="product-details-tab-list nav">
-                                        <li><a class="active show" href="#product-description" data-toggle="tab"
-                                                style="width: 200px; font-size: 20px; font-weight: 700;color:#cc7ccc;text-align: left;">short-Description</a>
-                                        </li>
-                                        <li><a href="#product-review" data-toggle="tab"
-                                                style="width: 270px; font-size: 20px; font-weight: 700;color: #cc7ccc;text-align: left;margin-bottom:10px;"><small
-                                                    style=" font-size: 12px; font-weight: 400;color:#999799;text-align: left;">Click
-                                                    Here for</small> Complete-Detail</a>
-                                        </li>
-                                    </ul>
-
                                     <div class="tab-content">
                                         <div id="product-description" class="tab-pane active show"
                                             style="background-color: #edeef0; padding:15px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                                             <h3
                                                 style=" font-size: 22px; font-weight: 700;color:#784055;text-align: left;">
-                                                Description in Short</h3>
+                                                Details</h3>
                                             <hr>
                                             <div class="product-description" style="color: #6e6d6d;">
                                                 short desc
@@ -103,28 +79,13 @@ include('assets/SecondHeader.php')
                                                 short desc
                                             </div>
                                         </div><br>
-                                        <div id="product-review" class="tab-pane">
-                                            <div class="product-review"
-                                                style="background-color: #edeef0; padding:15px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
-                                                <h3
-                                                    style=" font-size: 22px; font-weight: 700;color:#784055;text-align: left;">
-                                                    Complete Description
-                                                </h3>
-                                                <hr>
-                                                <div class="review-form" style="color: #6e6d6d;">
-                                                    long desc
-                                                </div>
 
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <br><br>
                                     <hr>
 
-                                    <!-- echo "<a href='?type=delete&id=" . $row['id'] . "' class='btn btn-primary'>Delete</a>&nbsp;&nbsp;";
-                                            echo "<a href='post.php?id=" . $row['id'] . "' class='btn btn-secondary'>Edit</a>";
-                                            ?> -->
+
 
                                 </div>
                             </div>
@@ -143,7 +104,9 @@ include('assets/SecondHeader.php')
 
 <!--Product section end-->
 
+
+
 <?php
-include("assets/footer.php");
+include('assets/footer.php');
 
 ?>
