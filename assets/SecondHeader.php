@@ -69,9 +69,7 @@
                     <li>
                         <a href="covid.php" class="nav-link">Covid relief</a>
                     </li>
-                    <li>
-                        <a href="post.php" class="nav-link">Post Something</a>
-                    </li>
+                
                     <li>
                         <a href="blog.php" class="nav-link">Blogs</a>
                     </li>
