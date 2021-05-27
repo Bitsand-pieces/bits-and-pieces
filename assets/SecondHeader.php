@@ -1,4 +1,4 @@
-<?php include('connection.php');?>
+<?php include('connection.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="css/all.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pattaya&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
 
@@ -28,33 +32,15 @@
         </div>
         <nav class="top-nav">
             <ul class="nav-list">
-                
-            <?php
-                    if($_SESSION['is_logged_in']==true){
-                        ?>
-                        <li>
-                        <a href="index.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link"><img src="images/logo1.png" alt="logo"
-                                style="width: 300px; height: 300px;"></a>
-                    </li>
-                    <li>
-                        <a href="index.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Home</a>
-                    </li>
-                    
-                    <li>
-                        <a href="covid.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Covid relief</a>
-                    </li>
-                    <li>
-                        <a href="post.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Post Something</a>
-                    </li>
-                    <li>
-                        <a href="blog.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Blogs</a>
-                    </li>
-                    <li>
-                        <a href="profile.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Profile</a>
-                    </li>
-                    <li>
-                    <a href="logout.php?msg=logout" class="nav-link" >Logout</a>
+
+                <?php
+                if ($_SESSION['is_logged_in'] == true) {
+                ?>
+                <li>
+                    <a href="index.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link"><img
+                            src="images/logo1.png" alt="logo" style="width: 300px; height: 300px;"></a>
                 </li>
+<<<<<<< HEAD
                 
 <?php
                     }else{
@@ -75,13 +61,56 @@
                     </li>
                     
                     <li>
+=======
+                <li>
+                    <a href="index.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Home</a>
+                </li>
+
+                <li>
+                    <a href="covid.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Covid relief</a>
+                </li>
+                <li>
+                    <a href="post.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Post Something</a>
+                </li>
+                <li>
+                    <a href="blog.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Blogs</a>
+                </li>
+                <li>
+                    <a href="profile.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Profile</a>
+                </li>
+                <li>
+                    <a href="logout.php?msg=logout" class="nav-link">Logout</a>
+                </li>
+
+                <?php
+                } else {
+                ?>
+                <li>
+                    <a href="index.php" class="nav-link"><img src="images/logo1.png" alt="logo"
+                            style="width: 300px; height: 300px;"></a>
+                </li>
+                <li>
+                    <a href="index.php" class="nav-link">Home</a>
+                </li>
+                <li>
+                    <a href="covid.php" class="nav-link">Covid relief</a>
+                </li>
+                <li>
+                    <a href="post.php" class="nav-link">Post Something</a>
+                </li>
+                <li>
+                    <a href="blog.php" class="nav-link">Blogs</a>
+                </li>
+
+                <li>
+>>>>>>> 8bd7f0aebf00908430b6a86f8dd005e1bb14e7f1
                     <a class="nav-link" data-toggle="modal" data-target="#myModal">Login</a>
                 </li>
                 <?php
-                    }
+                }
 
                 ?>
-                
+
             </ul>
         </nav>
 
@@ -122,39 +151,35 @@
 
                         </form>
                         <?php
-                            if(!empty($_GET['msg'])){
-                                if($_GET['msg']=='not_allowed'){
-                                    echo "<script>alert('please login first!!')</script>";
-                                    
-                                }
-                                if($_GET['msg']=='logout'){
-                                    echo "<script>alert('you have been logged out successfully!!')</script>";
-                                   
-                                }
+                        if (!empty($_GET['msg'])) {
+                            if ($_GET['msg'] == 'not_allowed') {
+                                echo "<script>alert('please login first!!')</script>";
                             }
-                            if(isset($_POST['login_btn'])){
-                                $loginEmail=$_POST['loginEmail'];
-                                $password=$_POST['password'];
+                            if ($_GET['msg'] == 'logout') {
+                                echo "<script>alert('you have been logged out successfully!!')</script>";
+                            }
+                        }
+                        if (isset($_POST['login_btn'])) {
+                            $loginEmail = $_POST['loginEmail'];
+                            $password = $_POST['password'];
 
-                                $log="SELECT * FROM `registeredusers` WHERE emailId='$loginEmail' AND pswd='$password'";
-                                $logQ=mysqli_query($conn,$log);
-                                
-                                if(mysqli_num_rows($logQ)>0){
-                                    header("location:index.php?username=$username");
-                                    $_SESSION['is_logged_in']=true;
-                                    $row=mysqli_fetch_array($logQ);
-                                    $_SESSION['email']=$loginEmail;
-                                    $_SESSION['name']=$row['name'];
-                                    $_SESSION['contact']=$row['phone'];
-                                    $_SESSION['userId']=$row['id'];
+                            $log = "SELECT * FROM `registeredusers` WHERE emailId='$loginEmail' AND pswd='$password'";
+                            $logQ = mysqli_query($conn, $log);
 
-                                }else{
-                                    echo '<div class="alert alert-warning" role="alert">
+                            if (mysqli_num_rows($logQ) > 0) {
+                                header("location:index.php?username=$username");
+                                $_SESSION['is_logged_in'] = true;
+                                $row = mysqli_fetch_array($logQ);
+                                $_SESSION['email'] = $loginEmail;
+                                $_SESSION['name'] = $row['name'];
+                                $_SESSION['contact'] = $row['phone'];
+                                $_SESSION['userId'] = $row['id'];
+                            } else {
+                                echo '<div class="alert alert-warning" role="alert">
                                     Incorrect Credentials !!!
                                 </div>';
-                                }
-
                             }
+                        }
                         ?>
                     </div>
 
@@ -221,40 +246,37 @@
                             </div>
                         </form>
                         <?php
-        if(isset($_POST['register_btn'])){
-            $username=$_POST['username'];
-            $email=$_POST['email'];
-            $phn=$_POST['phn'];
-            $pswd=$_POST['pswd'];
-            $cPswd=$_POST['cPswd'];
+                        if (isset($_POST['register_btn'])) {
+                            $username = $_POST['username'];
+                            $email = $_POST['email'];
+                            $phn = $_POST['phn'];
+                            $pswd = $_POST['pswd'];
+                            $cPswd = $_POST['cPswd'];
 
-            $sel="SELECT * FROM `registeredusers` WHERE emailId='".$email."' or pswd='".$pswd."'";
-            $selQ=mysqli_query($conn,$sel);
-            if(mysqli_num_rows($selQ)>0){
-                            echo '<div class="alert alert-warning" role="alert">
+                            $sel = "SELECT * FROM `registeredusers` WHERE emailId='" . $email . "' or pswd='" . $pswd . "'";
+                            $selQ = mysqli_query($conn, $sel);
+                            if (mysqli_num_rows($selQ) > 0) {
+                                echo '<div class="alert alert-warning" role="alert">
                                     User Already Exist!!!
                                 </div>';
-                        }else{
-                            if($cPswd!==$pswd){
-                                echo '<div class="alert alert-warning" role="alert">
+                            } else {
+                                if ($cPswd !== $pswd) {
+                                    echo '<div class="alert alert-warning" role="alert">
                                 Password and Confirm Password does not match!!!
                             </div>';
-                            }else{
-                                $in="INSERT INTO `registeredusers`( `name`, `emailId`, `phone`, `pswd`) VALUES ('$username','$email','$phn','$pswd')";
-                                $inQ=mysqli_query($conn,$in);
-                                if($inQ>0){
-                                    echo '<div class="alert alert-warning" role="alert">
+                                } else {
+                                    $in = "INSERT INTO `registeredusers`( `name`, `emailId`, `phone`, `pswd`) VALUES ('$username','$email','$phn','$pswd')";
+                                    $inQ = mysqli_query($conn, $in);
+                                    if ($inQ > 0) {
+                                        echo '<div class="alert alert-warning" role="alert">
                                     User Registered Successfully!!!
                                 </div>';
+                                    }
                                 }
                             }
-
-
                         }
 
-                }
-                   
-                    ?>
+                        ?>
 
 
                     </div>

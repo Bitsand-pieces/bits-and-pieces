@@ -1,6 +1,22 @@
 <?php
 include("assets/SecondHeader.php");
 
+if (isset($_POST['uploadblog_btn'])) {
+    $userId = $_SESSION['userId'];
+    $blogImg = $_FILES['blogImg']['name'];
+    $blogTitle = $_POST['blogTitle'];
+    $blogMsg = $_POST['blogMsg'];
+
+    $sql = "INSERT INTO `blogs`(`user_id`,`title`,`image`,`msg`) VALUES('" . $userId . "','" . $blogTitle . "','" . $blogImg . "','" . $blogMsg . "')";
+    $query = mysqli_query($conn, $sql);
+    if ($query) {
+        if (move_uploaded_file($_FILES["blogImg"]["tmp_name"], "images/blog/" . $blogImg));
+        echo "<script>alert('blog Uploaded successfully!!'); window.location='blog.php';</script>";
+    } else {
+        echo "<script>alert('can't upload blog!!retry...');window.location='blog.php';</script>";
+    }
+}
+
 ?>
 
 
@@ -77,13 +93,29 @@ include("assets/SecondHeader.php");
 <div style="padding:10px;background-color:white;margin:10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"
     class="blog-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-45 pb-lg-25 pb-md-15 pb-sm-5 pb-xs-15">
     <div class="container">
+        <?php if ($_SESSION['is_logged_in'] == true) { ?>
         <a href="" data-toggle="modal" data-target="#exampleModal" class="pb-5" style="margin-left: auto;">
             <h2 class="pb-5"><i class="fa fa-plus"></i> Post Blogs </h2>
         </a>
-
+        <?php } else { ?>
+        <div class="alert alert-warning alert-dismissible show" role="alert" style="margin-left: auto;">
+            <strong>Login First!!</strong> <small>to upload something</small>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <?php } ?>
 
         <div class="row">
+            <?php
+            $select = "SELECT * FROM `blogs` ORDER BY `blogs`.`id` DESC";
+            $qry = mysqli_query($conn, $select);
 
+            while ($row = mysqli_fetch_array($qry)) {
+                $path = "images/blog/" . $row['image'];
+
+
+            ?>
 
             <!-- Single Blog Start -->
             <div class="blog mb-30 mb-xs-10 col-lg-5 col-md-6 col-sm-6"
@@ -91,33 +123,19 @@ include("assets/SecondHeader.php");
                 onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
                 <div class="blog-inner heading-color">
                     <div class="blog-image">
-                        <a href="blog_details.php" class="image"><img src="images/oxygen.jpg" alt="" height="250px"></a>
-                        <ul class="meta theme-color">
-                            <li><i class="fa fa-clock-o"></i><a href="#">Time </a></li>
+                        <a href="blog_details.php?id=<?php echo $row['id']; ?>" class="image"><img
+                                src="<?php echo $path; ?>" alt="" height="250px"></a>
+                        <ul class="meta theme-color" style="list-style: none;">
+                            <li><i class="fa fa-clock"></i><?php echo $row['createdat']; ?></li>
                         </ul>
                     </div>
                     <div class="content" style="margin-left: 20px;">
-                        <h3 class="title"><a href="blog_details.php">title</a>
+                        <h3 class="title"><a href="blog_details.php"><?php echo $row['title']; ?></a>
                         </h3>
                     </div>
                 </div>
             </div>
-            <div class="blog mb-30 mb-xs-10 col-lg-5 col-md-6 col-sm-6"
-                style="background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);padding:5px;border-radius:5px;transition:all 300ms;box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;margin:10px;"
-                onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-                <div class="blog-inner heading-color">
-                    <div class="blog-image">
-                        <a href="blog_details.php" class="image"><img src="images/oxygen.jpg" alt="" height="250px"></a>
-                        <ul class="meta theme-color">
-                            <li><i class="fa fa-clock-o"></i><a href="#">Time </a></li>
-                        </ul>
-                    </div>
-                    <div class="content" style="margin-left: 20px;">
-                        <h3 class="title"><a href="blog_details.php">title</a>
-                        </h3>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
             <!-- Single Blog End -->
 
         </div>

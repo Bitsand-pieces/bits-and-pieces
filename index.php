@@ -18,9 +18,9 @@ include('assets/mainHeader.php')
                 <div class="card">
                     <div class="card_image"><img src="images/300254_feeding123.jpg"></div>
                     <div class="card_content">
-                        <h2 class="card_title">Card Grid Layout</h2>
-                        <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-                        <button class="btn card_btn"><a href="about.php">Read More</a></button>
+                        <h2 class="card_title" style="font-size: 16px;">About Food Donation</h2>
+                        <p class="card_text" style="font-size:13px;">Donate And Save Life</p>
+                        <button class="btn card_btn"><a href="about1.php">Read More</a></button>
                     </div>
                 </div>
             </li>
@@ -29,9 +29,9 @@ include('assets/mainHeader.php')
                 <div class="card">
                     <div class="card_image"><img src="images/oxygen.jpg"></div>
                     <div class="card_content">
-                        <h2 class="card_title">Card Grid Layout</h2>
-                        <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-                        <button class="btn card_btn"><a href="about.php">Read More</a></button>
+                        <h2 class="card_title" style="font-size: 16px;">About Covid Resource</h2>
+                        <p class="card_text" style="font-size:13px;">Donate Covid Safety Resources to save Humanity</p>
+                        <button class="btn card_btn"><a href="about2.php">Read More</a></button>
                     </div>
                 </div>
             </li>
@@ -40,9 +40,9 @@ include('assets/mainHeader.php')
                 <div class="card">
                     <div class="card_image"><img src="images/feeding_dogs.jpg"></div>
                     <div class="card_content">
-                        <h2 class="card_title">Card Grid Layout</h2>
-                        <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-                        <button class="btn card_btn"><a href="about.php">Read More</a></button>
+                        <h2 class="card_title" style="font-size: 16px;">About Street Animals Feeding</h2>
+                        <p class="card_text" style="font-size:13px;">Donate food to save Every Creature</p>
+                        <button class="btn card_btn"><a href="about3.php">Read More</a></button>
                     </div>
                 </div>
             </li>
