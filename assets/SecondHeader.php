@@ -40,6 +40,28 @@
                     <a href="index.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link"><img
                             src="images/logo1.png" alt="logo" style="width: 300px; height: 300px;"></a>
                 </li>
+<<<<<<< HEAD
+=======
+                <li>
+                    <a href="index.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Home</a>
+                </li>
+
+                <li>
+                    <a href="covid.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Covid relief</a>
+                </li>
+                <li>
+                    <a href="post.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Post Something</a>
+                </li>
+                <li>
+                    <a href="blog.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Blogs</a>
+                </li>
+                <li>
+                    <a href="profile.php?username=<?php echo $_SESSION['name']; ?>" class="nav-link">Profile</a>
+                </li>
+                <li>
+                    <a href="logout.php?msg=logout" class="nav-link">Logout</a>
+                </li>
+>>>>>>> 102d46d4abc25221a3c7d1d0ea05af7933ab7db4
 
                 <?php
                 } else {
@@ -54,7 +76,10 @@
                 <li>
                     <a href="covid.php" class="nav-link">Covid relief</a>
                 </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 102d46d4abc25221a3c7d1d0ea05af7933ab7db4
                 <li>
                     <a href="blog.php" class="nav-link">Blogs</a>
                 </li>
@@ -109,11 +134,16 @@
                         <?php
                         if (!empty($_GET['msg'])) {
                             if ($_GET['msg'] == 'not_allowed') {
-                                echo "<script>alert('please login first!!')</script>";
+                                echo "<script>alert('please login first!!');window.location='index.php';</script>";
                             }
                             if ($_GET['msg'] == 'logout') {
-                                echo "<script>alert('you have been logged out successfully!!')</script>";
+                                echo "<script>alert('you have been logged out successfully!!');window.location='index.php';</script>";
                             }
+                            
+                        }
+                        if($_SESSION['is_logged_in'] !== true && !empty($_GET['username'])){
+                            echo "<script>alert('please login first!!');window.location='index.php';</script>";
+
                         }
                         if (isset($_POST['login_btn'])) {
                             $loginEmail = $_POST['loginEmail'];

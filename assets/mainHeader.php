@@ -122,13 +122,19 @@
                         <?php
                         if(!empty($_GET['msg'])){
                             if($_GET['msg']=='not_allowed'){
-                                echo "<script>alert('please login first!!')</script>";
+                                echo "<script>alert('please login first!!');window.location='index.php';</script>";
                                 
                             }
                             if($_GET['msg']=='logout'){
-                                echo "<script>alert('you have been logged out successfully!!')</script>";
+                                echo "<script>alert('you have been logged out successfully!!');window.location='index.php';</script>";
                                
                             }
+                          
+                        }
+
+                        if($_SESSION['is_logged_in'] !== true && !empty($_GET['username'])){
+                            echo "<script>alert('please login first!!');window.location='index.php';</script>";
+
                         }
                             if(isset($_POST['login_btn'])){
                                 $loginEmail=$_POST['loginEmail'];
