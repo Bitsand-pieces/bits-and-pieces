@@ -82,6 +82,15 @@ include('assets/mainHeader.php')
                 <div class="buttons">
                     <button>Edit</button>
                     <button>Delete</button>
+                    <div>
+                        This Item is Safe to Use
+                        <p id="timer"></p>
+                    </div>
+
+
+
+
+
                 </div>
             </div>
             <div class="card" data-aos="zoom-in-down" data-aos-delay="200" data-aos-duration="1500"
@@ -166,7 +175,6 @@ include('assets/mainHeader.php')
     </div>
 
 </div>
-
 
 
 
