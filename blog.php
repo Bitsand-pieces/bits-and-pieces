@@ -88,9 +88,9 @@ if (isset($_POST['uploadblog_btn'])) {
 
 
 
-
+<div class="container">
 <!--Blog section start-->
-<div style="padding:10px;background-color:white;margin:10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+<div style="padding:30px 50px;background-color:white;margin:50px 10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"
     class="blog-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-45 pb-lg-25 pb-md-15 pb-sm-5 pb-xs-15">
     <div class="container">
         <?php if ($_SESSION['is_logged_in'] == true) { ?>
@@ -144,6 +144,7 @@ if (isset($_POST['uploadblog_btn'])) {
 </div>
 <!--Blog section end-->
 
+</div>
 <?php
 include("assets/footer.php");
 

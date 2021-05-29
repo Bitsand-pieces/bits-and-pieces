@@ -16,9 +16,10 @@ include('assets/SecondHeader.php');
 <!-- Breadcrumb Section End -->
 
 
+<div class="container">
 
 <!--Blog section start-->
-<div style="padding:10px;background-color:white;margin:10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+<div style="padding:30px 50px;background-color:white;margin:50px 10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"
     class="blog-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
     <div class="container">
 
@@ -104,6 +105,8 @@ include('assets/SecondHeader.php');
         </div>
     </div>
     <!--Blog section end-->
+
+    </div>
 
 
     <!-- EDIT BLOG MODAL starts-->
