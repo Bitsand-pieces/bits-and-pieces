@@ -63,22 +63,22 @@ include('assets/SecondHeader.php');
                         <?php
                         $sel = "SELECT * FROM `blogs` ORDER BY `blogs`.`id` DESC";
                         $q = mysqli_query($conn, $sel);
-                        while ($row = mysqli_fetch_array($q)) {
-                            $path = "images/blog/" . $row['image'];
+                        while ($row1 = mysqli_fetch_array($q)) {
+                            $path = "images/blog/" . $row1['image'];
                         ?>
                         <div class="sidebar-blog"
                             style="background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);padding:5px;border-radius:5px;transition:all 300ms;box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;margin:10px; height:160px;width:150px;text-align:center;"
                             onmouseover="this.style.transform='scale(1.03)'"
                             onmouseout="this.style.transform='scale(1)'">
 
-                            <a href="blog_details.php?id=<?php echo $row['id']; ?>" class="image"><img
+                            <a href="blog_details.php?id=<?php echo $row1['id']; ?>" class="image"><img
                                     src="<?php echo $path; ?>" alt=""
                                     style="width: 115px;height:80px;margin-left: 10px;"></a>
                             <div class="content" style="height:70px;">
                                 <h5><a
-                                        href="blog_details.php?id=<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a>
+                                        href="blog_details.php?id=<?php echo $row1['id']; ?>"><?php echo $row1['title']; ?></a>
                                 </h5>
-                                <span><?php echo $row['createdat']; ?></span>
+                                <span><?php echo $row1['createdat']; ?></span>
                             </div>
 
                         </div>
@@ -86,17 +86,19 @@ include('assets/SecondHeader.php');
 
 
                         <hr>
-                        <?php if ($_SESSION['is_logged_in'] == true) {
+                        
+                        <?php 
+                        if ($_SESSION['is_logged_in'] == true && $row['user_id'] == $_SESSION['userId']) {
                         ?>
-                        <?php if ($row['user_id'] === $_SESSION['userId']) { ?>
                         <div class="edit_del_blog">
                             <button class="btn" data-toggle="modal" data-target="#editBlogModal">EDIT
                                 BLOG</button>&nbsp;
                             <button class="btn btn-danger" data-toggle="modal" data-target="#deleteBlogModal">DELETE
                                 BLOG</button>
                         </div>
-                        <?php }
-                        } ?>
+                        <?php 
+                        }
+                         ?>
                     </div>
 
                 </div>
@@ -112,6 +114,7 @@ include('assets/SecondHeader.php');
     <!-- EDIT BLOG MODAL starts-->
 
     <?php
+    $blogId=$_GET['id'];
     $edit = "SELECT * FROM `blogs` WHERE id='" . $_GET['id'] . "'";
     $fetch = mysqli_fetch_assoc(mysqli_query($conn, $edit));
     $path = "images/blog/" . $fetch['image'];
@@ -123,9 +126,9 @@ include('assets/SecondHeader.php');
         if (mysqli_query($conn, $updateEdit)) {
             if (move_uploaded_file($_FILES["editblogImg"]["tmp_name"], "images/blog/" . $editblogImg));
 
-            echo "<script>alert('Blog edited successfully!!');window.loaction='blog_details.php';</script>";
+            echo "<script>alert('Blog edited successfully!!');window.loaction='blog_details.php?id=$blogId';</script>";
         } else {
-            echo "<script>alert('Can't edit Blog!!Please Retry...');window.loaction='bog_details.php';</script>";
+            echo "<script>alert('Can't edit Blog!!Please Retry...');window.loaction='bog_details.php?id=$blogId';</script>";
         }
     }
     ?>
@@ -156,7 +159,7 @@ include('assets/SecondHeader.php');
                                     </div>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="editblogImg"
-                                            name="editblogImg">
+                                            name="editblogImg" accept="image/*">
                                         <label class="custom-file-label" for="editblogImg">Choose file</label>
                                     </div>
                                 </div>
@@ -210,9 +213,10 @@ include('assets/SecondHeader.php');
                     <?php
 
                     if (isset($_POST['delBlog_btn'])) {
+                        $blogId=$_GET['id'] ;
                         $del = "DELETE FROM `blogs` WHERE id='" . $_GET['id'] . "'";
                         if (mysqli_query($conn, $del)) {
-                            echo "<script>alert('Your Blog is deleted successfully!!');window.location='blog.php';</script>";
+                            echo "<script>alert('Your Blog is deleted successfully!!');window.location='blog.php?id=$blogId';</script>";
                         }
                     }
                     ?>

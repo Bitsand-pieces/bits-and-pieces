@@ -56,132 +56,69 @@ include('assets/mainHeader.php')
     <div class="post">
         <h2><u>Available Foods..</u></h2>
         <div class="line"></div>
-        <div class="cards">
-            <div class="card" data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="1500"
-                data-aos-offset="400">
-                <div class="card-item">
-                    <div class="card-image"><img src="images/oxygen.jpg" alt=""></div>
-                    <div class="card-content">
-                        <div class="card-title"><span>Food Name: </span>alok kumar</div>
-                        <div class="card-text"><span>details: </span>Demo of pixel perfect pure CSS simple responsive
-                            card grid layoutDemo of pixel perfect pure CSS
-                            simple responsive card grid layoutDemo of pixel perfect pure CSS simple responsive card grid
-                            layoutDemo of pixel perfect pure CSS simple
-                            responsive card grid layout
-                        </div>
-                        <a href="food_details.php"><i class="fa fa-hand-point-right"></i> more details</a><br>
-                        <h3>Complete Address</h3>
-                        <div class="card-name"><span>Name : </span>Alok kumar</div>
-                        <div class="card-email"><span>Email : </span>alok.kumar@gmail.com</div>
-                        <div class="card-number"><span>Mobile No. : </span>7600351870</div>
-                        <div class="card-address"><span>Complete Address : </span>halmari,katihr(Bihar), 577880</div>
-                        <br>
 
+        <?php 
+        $username=$_SESSION['name'];
+        $selData="SELECT * FROM `posts`";
+        $dataQ=mysqli_query($conn,$selData);
+        while($row=mysqli_fetch_array($dataQ)){
+            $objectName=$row['objectName'];
+            $objectImgPath="images/posts/".$row['objectImg'];
+            $shrt_desc=$row['shrt_desc'];
+
+            $user_id=$row['user_id'];
+            $dType_id=$row['dType_id'];
+
+            $userSql="SELECT * FROM `registeredusers` WHERE id='$user_id'";
+            $userQ=mysqli_query($conn,$userSql);
+            $detail=mysqli_fetch_assoc($userQ);
+
+            $userAddSql="SELECT * FROM `userdetails` WHERE userId='$user_id'";
+            $userAddQ=mysqli_query($conn,$userAddSql);
+            $addDetail=mysqli_fetch_assoc($userAddQ);
+
+            $dTypeSql="SELECT * FROM `donationtype` WHERE id='$dType_id'";
+            $dTypeQ=mysqli_query($conn,$dTypeSql);
+            $dTypeDetail=mysqli_fetch_assoc($dTypeQ);
+
+            if($dTypeDetail['dType'] == "Food"){
+    ?>
+
+    <div class="cards">
+
+        <div class="card" data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="400">
+            <div class="card-item">
+                <div class="card-image"><img src="<?php echo $objectImgPath;?>" alt=""></div>
+                <div class="card-content">
+                    <div class="card-title"><span>Object Name: </span><?php echo $objectName;?></div>
+                    <div class="card-text"><span>details: </span>
+                    <?php echo $shrt_desc;?>
                     </div>
-                </div>
-                <div class="buttons">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                    <div>
-                        This Item is Safe to Use
-                        <p id="timer"></p>
-                    </div>
+                    <a href="food_details.php?username=<?php echo $username;?>"><i class="fa fa-hand-point-right"></i> more details</a><br>
+                    <h3>Complete Address</h3>
+                    <div class="card-name"><span>Name : </span><?php echo $detail['name'];?></div>
+                    <div class="card-email"><span>Email : </span><?php echo $detail['emailId'];?></div>
+                    <div class="card-number"><span>Mobile No. : </span><?php echo $detail['phone'];?></div>
+                    <div class="card-address"><span>Complete Address : </span><?php echo $addDetail['address'].",".$addDetail['pincode'];?></div>
+                    <br>
 
-
-
-
-
-                </div>
-            </div>
-            <div class="card" data-aos="zoom-in-down" data-aos-delay="200" data-aos-duration="1500"
-                data-aos-offset="400">
-                <div class="card-item">
-                    <div class="card-image"><img src="images/oxygen.jpg" alt=""></div>
-                    <div class="card-content">
-                        <div class="card-title"><span>Food Name: </span>alok kumar</div>
-                        <div class="card-text"><span>details: </span>Demo of pixel perfect pure CSS simple responsive
-                            card grid layoutDemo of pixel perfect pure CSS
-                            of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel perfect pure CSS
-                            simple responsive card grid layoutDemo of pixel
-                            perfect pure CSS simple responsive card grid layout
-                        </div>
-                        <a href="food_details.html">more details</a><br>
-                        <h3>Address</h3>
-                        <div class="card-name"><span>Name :</span>Alok kumar</div>
-                        <div class="card-email"><span>Email :</span>alok.kumar@gmail.com</div>
-                        <div class="card-number"><span>Mobile No. :</span>7600351870</div>
-                        <div class="card-address"><span>Complete Address :</span>halmari,katihr(Bihar), 577880</div>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                    <div>
-                        This Item is Safe to Use
-                        <p id="timer"></p>
-                    </div>
                 </div>
             </div>
-            <div class="card" data-aos="zoom-in-down" data-aos-delay="200" data-aos-duration="1500"
-                data-aos-offset="400">
-                <div class="card-item">
-                    <div class="card-image"><img src="images/oxygen.jpg" alt=""></div>
-                    <div class="card-content">
-                        <div class="card-title"><span>Food Name: </span>alok kumar</div>
-                        <div class="card-text"><span>details: </span>Demo of pixel perfect pure CSS simple responsive
-                            card grid layoutDemo of pixel perfect pure
-                            grid layoutDemo of pixel perfect pure CSS simple responsive card grid layoutDemo of pixel
-                            perfect pure CSS simple responsive card grid
-                            layoutDemo of pixel perfect pure CSS simple responsive card grid layout
-                        </div>
-                        <a href="food_details.html">more details</a><br>
-                        <h3>Address</h3>
-                        <div class="card-name"><span>Name :</span>Alok kumar</div>
-                        <div class="card-email"><span>Email :</span>alok.kumar@gmail.com</div>
-                        <div class="card-number"><span>Mobile No. :</span>7600351870</div>
-                        <div class="card-address"><span>Complete Address :</span>halmari,katihr(Bihar), 577880</div>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                    <div>
-                        This Item is Safe to Use
-                        <p id="timer"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="card" data-aos="zoom-in-down" data-aos-delay="200" data-aos-duration="1500"
-                data-aos-offset="400">
-                <div class="card-item">
-                    <div class="card-image"><img src="images/oxygen.jpg" alt=""></div>
-                    <div class="card-content">
-                        <div class="card-title"><span>Food Name: </span>alok kumar</div>
-                        <div class="card-text"><span>details: </span>Demo of pixel perfect pure CSS simple responsive
-                            card grid layoutDemo of pixel perfect pure CSS
-                            card grid layoutDemo of pixel perfect pure CSS simple responsive card grid layoutDemo of
-                            pixel perfect pure CSS simple responsive card grid
-                            layoutDemo of pixel perfect pure CSS simple responsive card grid layout
-
-                        </div>
-                        <a href="food_details.html">more details</a><br>
-                        <h3>Address</h3>
-                        <div class="card-name"><span>Name :</span>Alok kumar</div>
-                        <div class="card-email"><span>Email :</span>alok.kumar@gmail.com</div>
-                        <div class="card-number"><span>Mobile No. :</span>7600351870</div>
-                        <div class="card-address"><span>Complete Address :</span>halmari,katihr(Bihar), 577880</div>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                    <div>
-                        This Item is Safe to Use
-                        <p id="timer"></p>
-                    </div>
+            <div class="buttons">
+            <?php if($detail['emailId'] == $_SESSION['email']){?>
+                <button>Edit</button>
+                <button>Delete</button>
+                <?php } ?>
+                <div>
+                    This Item is Safe to Use
+                    <p id="timer"></p>
                 </div>
             </div>
         </div>
+    </div>
+    <?php }
+ } ?>
+ 
 
 
     </div>

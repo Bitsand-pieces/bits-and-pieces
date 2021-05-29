@@ -1,5 +1,6 @@
 <?php
 include("assets/SecondHeader.php");
+$username=$_SESSION['name'];
 
 if (isset($_POST['uploadblog_btn'])) {
     $userId = $_SESSION['userId'];
@@ -11,9 +12,9 @@ if (isset($_POST['uploadblog_btn'])) {
     $query = mysqli_query($conn, $sql);
     if ($query) {
         if (move_uploaded_file($_FILES["blogImg"]["tmp_name"], "images/blog/" . $blogImg));
-        echo "<script>alert('blog Uploaded successfully!!'); window.location='blog.php';</script>";
+        echo "<script>alert('blog Uploaded successfully!!'); window.location='blog.php?username=$username';</script>";
     } else {
-        echo "<script>alert('can't upload blog!!retry...');window.location='blog.php';</script>";
+        echo "<script>alert('can't upload blog!!retry...');window.location='blog.php?username=$username';</script>";
     }
 }
 
@@ -58,7 +59,7 @@ if (isset($_POST['uploadblog_btn'])) {
                                 <span class="input-group-text">Upload</span>
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="blogImg" name="blogImg">
+                                <input type="file" class="custom-file-input" id="blogImg" name="blogImg" required accept="image/*">
                                 <label class="custom-file-label" for="blogImg">Choose file</label>
                             </div>
                         </div>
@@ -68,11 +69,11 @@ if (isset($_POST['uploadblog_btn'])) {
                     </div>
                     <div class="form-group">
                         <label for="blogTitle" class="col-form-label">Title:</label>
-                        <input type="text" class="form-control" id="blogTitle" name="blogTitle">
+                        <input type="text" class="form-control" id="blogTitle" name="blogTitle" required>
                     </div>
                     <div class="form-group">
                         <label for="blogMsg" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="blogMsg" name="blogMsg" rows="10"></textarea>
+                        <textarea class="form-control" id="blogMsg" name="blogMsg" rows="10" required></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -130,14 +131,14 @@ if (isset($_POST['uploadblog_btn'])) {
                         </ul>
                     </div>
                     <div class="content" style="margin-left: 20px;">
-                        <h3 class="title"><a href="blog_details.php"><?php echo $row['title']; ?></a>
+                        <h3 class="title"><a href="blog_details.php?id=<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a>
                         </h3>
                     </div>
                 </div>
             </div>
             <?php } ?>
             <!-- Single Blog End -->
-
+            
         </div>
 
     </div>
