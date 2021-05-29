@@ -210,8 +210,8 @@ if ($_SESSION['is_logged_in'] == true) {
                         <img style="margin-top:70px; border-radius:150%; height:200px; width:200px;" src="images/profilePicture/avtar.png" alt="">
 
                     <?php } ?>
-                    <p  class="text-center"><a href="" data-toggle="modal" data-target="#editProfileModal"><span class="fa fa-edit"> </span> EDIT PROFILE </a> </p>
-                    <p  class="text-center"><a href="" data-toggle="modal" data-target="#changePasswordModal"><span class="fa fa-edit"> </span> CHANGE PASSWORD </a> </p>
+                    <!-- <p  class="text-center"><a href="" data-toggle="modal" data-target="#editProfileModal"><span class="fa fa-edit"> </span> EDIT PROFILE </a> </p> -->
+                    <!-- <p  class="text-center"><a href="" data-toggle="modal" data-target="#changePasswordModal"><span class="fa fa-edit"> </span> CHANGE PASSWORD </a> </p> -->
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-8 user-detail">

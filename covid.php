@@ -14,6 +14,7 @@ include('assets/SecondHeader.php');
             $objectName = $row['objectName'];
             $objectImgPath = "images/posts/" . $row['objectImg'];
             $shrt_desc = $row['shrt_desc'];
+            $quantity= $row['quantity'];
 
             $user_id = $row['user_id'];
             $dType_id = $row['dType_id'];
@@ -37,9 +38,12 @@ include('assets/SecondHeader.php');
 
         <div class="card" data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="400">
             <div class="card-item">
-                <div class="card-image"><img src="<?php echo $objectImgPath; ?>" alt=""></div>
+                <div class="card-image"><img src="<?php echo $objectImgPath; ?>" style="height:350px" alt=""></div>
                 <div class="card-content">
                     <div class="card-title"><span>Object Name: </span><?php echo $objectName; ?></div>
+                    <div class="card-text"><span>Quantity: </span>
+                            <?php echo $quantity; ?>
+                        </div>
                     <div class="card-text"><span>details: </span>
                         <?php echo $shrt_desc; ?>
                     </div>
@@ -55,24 +59,19 @@ include('assets/SecondHeader.php');
 
                 </div>
             </div>
-            <div class="buttons">
-                <?php if ($detail['emailId'] == $_SESSION['email']) { ?>
-                <button>Edit</button>
-                <button>Delete</button>
-                <?php } ?>
-                <!-- <div>
+            <!-- timer -->
+                <div>
                     This Item is Safe to Use
                     <p id="response"></p>
-                </div> -->
-            </div>
+                </div>
+            <!-- timer end -->
+           
         </div>
 
         <?php }
         } ?>
     </div>
 </div>
-
-
 
 
 

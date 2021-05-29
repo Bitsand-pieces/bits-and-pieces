@@ -73,6 +73,7 @@
 </footer>
 
 
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -95,6 +96,8 @@ setInterval(function() {
     document.getElementById("response").innerHTML = xmlhttp.responseText;
 }, 1000)
 </script> -->
+
+
 </body>
 
 </html>

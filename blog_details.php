@@ -79,7 +79,7 @@ include('assets/SecondHeader.php');
                                     <h5><a
                                             href="blog_details.php?id=<?php echo $row1['id']; ?>"><?php echo $row1['title']; ?></a>
                                     </h5>
-                                    <span><?php echo $row1['createdat']; ?></span>
+                                    
                                 </div>
 
                             </div>
