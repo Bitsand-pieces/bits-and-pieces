@@ -28,13 +28,32 @@ include('assets/SecondHeader.php')
 
             <div class="col-lg-12">
                 <div class="row">
+                    <?php
+                    $sql = "SELECT * FROM `posts` WHERE id='" . $_GET['id'] . "'";
+                    $query = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($query);
+                    $path = "images/posts/" . $row['objectImg'];
 
+                    $user_id = $row['user_id'];
+                    $dType_id = $row['dType_id'];
+
+                    $userSql = "SELECT * FROM `registeredusers` WHERE id='$user_id'";
+                    $userQ = mysqli_query($conn, $userSql);
+                    $detail = mysqli_fetch_assoc($userQ);
+
+                    $userAddSql = "SELECT * FROM `userdetails` WHERE userId='$user_id'";
+                    $userAddQ = mysqli_query($conn, $userAddSql);
+                    $addDetail = mysqli_fetch_assoc($userAddQ);
+
+
+
+                    ?>
                     <div class="product-details col-12 mb-50 mb-sm-40 mb-xs-30">
                         <div class="product-inner row">
                             <div class="col-md-6 col-12 mb-xs-30">
                                 <div class="product-image-slider">
-                                    <div class="item"><a href="images/landingpage.png" class="gallery-popup"><i
-                                                class="pe-7s-search"></i><img src="images/landingpage.png" alt=""></a>
+                                    <div class="item"><a href="<?php echo $path; ?>" class="gallery-popup"><i
+                                                class="pe-7s-search"></i><img src="<?php echo $path; ?>" alt=""></a>
                                     </div>
 
                                 </div>
@@ -42,17 +61,19 @@ include('assets/SecondHeader.php')
                             </div>
                             <div class="col-md-6 col-12 ">
                                 <div class="content details" style="padding: 20px;">
-                                    <h3 class="title" style="font-weight: 600;color:blueviolet;">alok kumar</h4>
+                                    <h3 class="title" style="font-weight: 600;color:blueviolet;">
+                                        <?php echo $row['objectName'] ?></h4>
                                     </h3>
 
 
                                     <div class="product-meta" style="padding: 20px;">
-                                        <span class="posted-in"><b>Name :</b> mine</span><br>
-                                        <span class="tagged-as"><b>Email :</b> mine@email.com</span><br>
-                                        <span class="tagged-as"><b>Mobile no :</b> 78210303663</span><br>
-                                        <span class="tagged-as"><b>Address :</b> 668821564,
-                                            jiya ho bihar ke lala,<br>jkxcjcz bkdb,
-                                            145652</span>
+                                        <span class="posted-in"><b>Name :</b> <?php echo $detail['name']; ?></span><br>
+                                        <span class="tagged-as"><b>Email :</b>
+                                            <?php echo $detail['emailId']; ?></span><br>
+                                        <span class="tagged-as"><b>Mobile no :</b>
+                                            <?php echo $detail['phone']; ?></span><br>
+                                        <span class="tagged-as"><b>Address :</b>
+                                        </span><?php echo $addDetail['address'] . "," . $addDetail['pincode']; ?></span>
                                     </div>
 
 
@@ -76,31 +97,7 @@ include('assets/SecondHeader.php')
                                                 Description in Short</h3>
                                             <hr>
                                             <div class="product-description" style="color: #6e6d6d;">
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
-                                                short desc
+                                                <?php echo $row['shrt_desc'] ?>
                                             </div>
                                         </div><br>
                                         <div id="product-review" class="tab-pane">
@@ -112,7 +109,7 @@ include('assets/SecondHeader.php')
                                                 </h3>
                                                 <hr>
                                                 <div class="review-form" style="color: #6e6d6d;">
-                                                    long desc
+                                                    <?php echo $row['comp_desc'] ?>
                                                 </div>
 
                                             </div>

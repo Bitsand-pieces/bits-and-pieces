@@ -18,95 +18,98 @@ include('assets/SecondHeader.php');
 
 <div class="container">
 
-<!--Blog section start-->
-<div style="padding:30px 50px;background-color:white;margin:50px 10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"
-    class="blog-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
-    <div class="container">
+    <!--Blog section start-->
+    <div style="padding:30px 50px;background-color:white;margin:50px 10px;border-radius:10px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+        class="blog-section section pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
+        <div class="container">
 
-        <div class="row">
-            <?php
-            $sql = "SELECT * FROM `blogs` WHERE id='" . $_GET['id'] . "'";
-            $query = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($query);
-            $path = "images/blog/" . $row['image'];
-            ?>
             <div class="row">
-                <div class="col-lg-9">
-                    <div class="row">
-                        <!-- Single Blog Start -->
-                        <div class="blog post-full-item mb-30 col-lg-12">
-                            <div class="blog-inner heading-color">
-                                <div class="blog-image" style="margin-top: 20px;">
-                                    <a href="#" class="image"><img src="<?php echo $path; ?>" alt="" height="500px"></a>
-                                    <ul class="meta theme-color" style="list-style: none;">
-                                        <li><i class="fa fa-clock-o"></i><?php echo $row['createdat']; ?></li>
-                                        <li><i class="fa fa-comments"></i>0</li>
-                                    </ul>
-                                </div>
-                                <div class="content blog-grid-content">
-                                    <h3 class="title"><?php echo $row['title'] ?></h3>
-                                    <blockquote>
-                                        <p><?php echo $row['msg']; ?></p>
-                                    </blockquote>
+                <?php
+                $sql = "SELECT * FROM `blogs` WHERE id='" . $_GET['id'] . "'";
+                $query = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_assoc($query);
+                $path = "images/blog/" . $row['image'];
+                ?>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <!-- Single Blog Start -->
+                            <div class="blog post-full-item mb-30 col-lg-12">
+                                <div class="blog-inner heading-color">
+                                    <div class="blog-image" style="margin-top: 20px;">
+                                        <a href="#" class="image"><img src="<?php echo $path; ?>" alt=""
+                                                height="500px"></a>
+                                        <ul class="meta theme-color" style="list-style: none;">
+                                            <li><i class="fa fa-clock-o"></i><?php echo $row['createdat']; ?></li>
+                                            <li><i class="fa fa-comments"></i>0</li>
+                                        </ul>
+                                    </div>
+                                    <div class="content blog-grid-content">
+                                        <h3 class="title"><?php echo $row['title'] ?></h3>
+                                        <blockquote>
+                                            <p><?php echo $row['msg']; ?></p>
+                                        </blockquote>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Single Blog End -->
+                            <!-- Single Blog End -->
 
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-sm-3 mt-xs-3">
+                        <div class="sidebar"
+                            style="display:flex;justify-content:center;align-items:center;flex-direction:column;">
+                            <h3 class="sidebar-title">Recent Posts</h3>
+                            <?php
+                            $sel = "SELECT * FROM `blogs` ORDER BY `blogs`.`id` DESC";
+                            $q = mysqli_query($conn, $sel);
+                            while ($row1 = mysqli_fetch_array($q)) {
+                                $path = "images/blog/" . $row1['image'];
+                            ?>
+                            <div class="sidebar-blog"
+                                style="background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);padding:5px;border-radius:5px;transition:all 300ms;box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;margin:10px; height:160px;width:150px;text-align:center;"
+                                onmouseover="this.style.transform='scale(1.03)'"
+                                onmouseout="this.style.transform='scale(1)'">
+
+                                <a href="blog_details.php?id=<?php echo $row1['id']; ?>" class="image"><img
+                                        src="<?php echo $path; ?>" alt=""
+                                        style="width: 115px;height:80px;margin-left: 10px;"></a>
+                                <div class="content" style="height:70px;">
+                                    <h5><a
+                                            href="blog_details.php?id=<?php echo $row1['id']; ?>"><?php echo $row1['title']; ?></a>
+                                    </h5>
+                                    <span><?php echo $row1['createdat']; ?></span>
+                                </div>
+
+                            </div>
+                            <?php }  ?>
+
+
+                            <hr>
+
+                            <?php
+                            if ($_SESSION['is_logged_in'] == true && $row['user_id'] == $_SESSION['userId']) {
+                            ?>
+                            <div class="edit_del_blog buttons">
+                                <button class="btn1" data-toggle="modal" data-target="#editBlogModal">Edit
+                                    Blog</button>&nbsp;
+                                <button class="btn1 " data-toggle="modal" data-target="#deleteBlogModal"
+                                    style="background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);">Delete
+                                    Blog
+                                </button>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
 
                     </div>
                 </div>
-                <div class="col-lg-3 mt-sm-3 mt-xs-3">
-                    <div class="sidebar"
-                        style="display:flex;justify-content:center;align-items:center;flex-direction:column;">
-                        <h3 class="sidebar-title">Recent Posts</h3>
-                        <?php
-                        $sel = "SELECT * FROM `blogs` ORDER BY `blogs`.`id` DESC";
-                        $q = mysqli_query($conn, $sel);
-                        while ($row1 = mysqli_fetch_array($q)) {
-                            $path = "images/blog/" . $row1['image'];
-                        ?>
-                        <div class="sidebar-blog"
-                            style="background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);padding:5px;border-radius:5px;transition:all 300ms;box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;margin:10px; height:160px;width:150px;text-align:center;"
-                            onmouseover="this.style.transform='scale(1.03)'"
-                            onmouseout="this.style.transform='scale(1)'">
 
-                            <a href="blog_details.php?id=<?php echo $row1['id']; ?>" class="image"><img
-                                    src="<?php echo $path; ?>" alt=""
-                                    style="width: 115px;height:80px;margin-left: 10px;"></a>
-                            <div class="content" style="height:70px;">
-                                <h5><a
-                                        href="blog_details.php?id=<?php echo $row1['id']; ?>"><?php echo $row1['title']; ?></a>
-                                </h5>
-                                <span><?php echo $row1['createdat']; ?></span>
-                            </div>
-
-                        </div>
-                        <?php }  ?>
-
-
-                        <hr>
-                        
-                        <?php 
-                        if ($_SESSION['is_logged_in'] == true && $row['user_id'] == $_SESSION['userId']) {
-                        ?>
-                        <div class="edit_del_blog">
-                            <button class="btn" data-toggle="modal" data-target="#editBlogModal">EDIT
-                                BLOG</button>&nbsp;
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteBlogModal">DELETE
-                                BLOG</button>
-                        </div>
-                        <?php 
-                        }
-                         ?>
-                    </div>
-
-                </div>
             </div>
-
         </div>
-    </div>
-    <!--Blog section end-->
+        <!--Blog section end-->
 
     </div>
 
@@ -114,7 +117,7 @@ include('assets/SecondHeader.php');
     <!-- EDIT BLOG MODAL starts-->
 
     <?php
-    $blogId=$_GET['id'];
+    $blogId = $_GET['id'];
     $edit = "SELECT * FROM `blogs` WHERE id='" . $_GET['id'] . "'";
     $fetch = mysqli_fetch_assoc(mysqli_query($conn, $edit));
     $path = "images/blog/" . $fetch['image'];
@@ -158,8 +161,8 @@ include('assets/SecondHeader.php');
                                         <span class="input-group-text">Upload</span>
                                     </div>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="editblogImg"
-                                            name="editblogImg" accept="image/*">
+                                        <input type="file" class="custom-file-input" id="editblogImg" name="editblogImg"
+                                            accept="image/*">
                                         <label class="custom-file-label" for="editblogImg">Choose file</label>
                                     </div>
                                 </div>
@@ -184,9 +187,11 @@ include('assets/SecondHeader.php');
                         </div>
 
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="editBlog_btn">Save changes</button>
+                    <div class="modal-footer buttons">
+                        <button type="button" class="btn1" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn1" name="editBlog_btn"
+                            style="background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);">Save
+                            changes</button>
                     </div>
                 </form>
             </div>
@@ -213,7 +218,7 @@ include('assets/SecondHeader.php');
                     <?php
 
                     if (isset($_POST['delBlog_btn'])) {
-                        $blogId=$_GET['id'] ;
+                        $blogId = $_GET['id'];
                         $del = "DELETE FROM `blogs` WHERE id='" . $_GET['id'] . "'";
                         if (mysqli_query($conn, $del)) {
                             echo "<script>alert('Your Blog is deleted successfully!!');window.location='blog.php?id=$blogId';</script>";
@@ -222,10 +227,12 @@ include('assets/SecondHeader.php');
                     ?>
 
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="modal-footer buttons">
+                    <button type="button" class="btn1" data-dismiss="modal">Cancel</button>
                     <form action="" method="post">
-                        <button type="submit" class="btn btn-primary" name="delBlog_btn">Delete Blog</button>
+                        <button type="submit" class="btn1" name="delBlog_btn"
+                            style="background: linear-gradient(to bottom left, #e9a3ad 40%, #e2c6b5 100%);">Yes, Delete
+                        </button>
                     </form>
                 </div>
             </div>
